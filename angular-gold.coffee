@@ -30,7 +30,7 @@ $scope.users = [ "John", "Mary"]
 </form>
 ###
 
-goldDrtv.directive('auInputName', 
+goldDrtv.directive 'auInputName', 
     [ '$interpolate', ($interpolate) ->
         ddo = 
             restrict: 'A' # only activate on element attribute
@@ -41,13 +41,14 @@ goldDrtv.directive('auInputName',
                 nameTransformed = ex($scope)
                 modelCtrl = ctrls[0]
                 modelCtrl.$name = nameTransformed
-                elm.attr("name",nameTransformed)
+                elm.attr("name", nameTransformed)
                 formCtrl = ctrls[1]
                 formCtrl.$addControl(modelCtrl)
                 return true
         return ddo        
-    ])
-    
+    ]
+
+
 ###
 au-form-name auFormName
 au-outer-form auOuterForm
@@ -86,7 +87,7 @@ $scope.users =
 
 ###
 
-goldDrtv.directive('auFormName', 
+goldDrtv.directive 'auFormName', 
     [ '$interpolate', ($interpolate) ->
         ddo = 
             restrict: 'A' # only activate on element attribute
@@ -99,11 +100,11 @@ goldDrtv.directive('auFormName',
                 formCtrl = $scope.$parent[elm.attr(attrs.$attr.auOuterForm)]
                 formCtrl.$removeControl(innerFormCtrl)
                 innerFormCtrl.$name = innerFormName
-                elm.attr("name",innerFormName)
+                elm.attr("name", innerFormName)
                 formCtrl.$addControl(innerFormCtrl)
                 return true
         return ddo        
-    ])
+    ]
 
 
 ### Obsolete
